@@ -41,7 +41,7 @@ export default {
             headers: {
               'Access-Control-Allow-Origin': '*',
             },
-          }
+          },
         )
       } catch (error) {
         if (error.code === APIErrorCode.ObjectNotFound) {
@@ -54,7 +54,7 @@ export default {
               headers: {
                 'Access-Control-Allow-Origin': '*',
               },
-            }
+            },
           )
         } else {
           console.error(error)
@@ -67,7 +67,7 @@ export default {
               headers: {
                 'Access-Control-Allow-Origin': '*',
               },
-            }
+            },
           )
         }
       }
@@ -104,7 +104,7 @@ export default {
             headers: {
               'Access-Control-Allow-Origin': '*',
             },
-          }
+          },
         )
       } catch (error) {
         if (error.code === APIErrorCode.ObjectNotFound) {
@@ -117,7 +117,7 @@ export default {
               headers: {
                 'Access-Control-Allow-Origin': '*',
               },
-            }
+            },
           )
         } else {
           console.error(error)
@@ -130,7 +130,7 @@ export default {
               headers: {
                 'Access-Control-Allow-Origin': '*',
               },
-            }
+            },
           )
         }
       }
