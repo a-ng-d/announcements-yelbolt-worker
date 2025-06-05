@@ -6,9 +6,12 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev",
-    "start:8888": "wrangler dev --port 8888"
+    "start:8888": "wrangler dev --port 8888",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "devDependencies": {
+    "prettier": "^3.5.3",
     "wrangler": "^3.90.0"
   },
   "dependencies": {
