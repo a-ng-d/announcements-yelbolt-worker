@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "prettier": "^3.5.3",
-    "wrangler": "^3.90.0"
+    "wrangler": "^4.29.1"
   },
   "dependencies": {
     "@notionhq/client": "^2.2.15"
