@@ -11,6 +11,7 @@
     "format:fix": "prettier --write ."
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20251210.0",
     "prettier": "^3.5.3",
     "wrangler": "^4.29.1"
   },
