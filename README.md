@@ -69,9 +69,11 @@ npm run format:fix
 Retrieves the version of the announcements database.
 
 **Query parameters:**
+
 - `database_id` (optional) - Notion database ID (uses default ID if not specified)
 
 **Response:**
+
 ```json
 {
   "version": "1.0.0"
@@ -83,9 +85,11 @@ Retrieves the version of the announcements database.
 Retrieves all published announcements, sorted by publication date (most recent first).
 
 **Query parameters:**
+
 - `database_id` (optional) - Notion database ID
 
 **Response:**
+
 ```json
 {
   "announcements": [...]
@@ -93,6 +97,7 @@ Retrieves all published announcements, sorted by publication date (most recent f
 ```
 
 **Applied filters:**
+
 - Only announcements with `Publié = true` are returned
 - Sorted by `Date de publication` descending
 
