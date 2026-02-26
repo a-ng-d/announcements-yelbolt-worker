@@ -1,7 +1,11 @@
 import { Client, APIErrorCode } from '@notionhq/client'
 
+interface Env {
+  NOTION_API_KEY: string
+}
+
 export default {
-  async fetch(request, env, ctx) {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
 
     // Handle CORS preflight requests
@@ -44,7 +48,7 @@ export default {
           },
         )
       } catch (error) {
-        if (error.code === APIErrorCode.ObjectNotFound) {
+        if (error instanceof Error && 'code' in error && error.code === APIErrorCode.ObjectNotFound) {
           return new Response(
             JSON.stringify({
               message: 'The database is not found',
@@ -107,7 +111,7 @@ export default {
           },
         )
       } catch (error) {
-        if (error.code === APIErrorCode.ObjectNotFound) {
+        if (error instanceof Error && 'code' in error && error.code === APIErrorCode.ObjectNotFound) {
           return new Response(
             JSON.stringify({
               message: 'The database is not found',
@@ -135,5 +139,17 @@ export default {
         }
       }
     }
+
+    return new Response(
+      JSON.stringify({
+        message: 'Invalid action',
+      }) as BodyInit,
+      {
+        status: 400,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      },
+    )
   },
 }
