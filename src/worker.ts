@@ -7,6 +7,7 @@ interface Env {
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
+    const headers = request.headers
 
     // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
@@ -29,7 +30,7 @@ export default {
     if (url.searchParams.get('action') === 'get_version') {
       try {
         const notion = new Client({
-          auth: env.NOTION_API_KEY,
+          auth: headers.get('authentication_tokens') ?? env.NOTION_API_KEY,
         })
 
         const announcementsInfo = await notion.databases.retrieve({
@@ -86,14 +87,14 @@ export default {
         const announcementsList = await notion.databases.query({
           database_id: url.searchParams.get('database_id') ?? 'e078993c1ac74bdb8d2806174927ddcb',
           filter: {
-            property: 'Publié',
+            property: 'Published',
             checkbox: {
               equals: true,
             },
           },
           sorts: [
             {
-              property: 'Date de publication',
+              property: 'Publication Date',
               direction: 'descending',
             },
           ],
